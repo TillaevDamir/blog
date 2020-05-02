@@ -10,6 +10,7 @@ class Pagination
 	private $current_page;
 	private $total;
 	private $limit;
+	private $amount;
 
 	public function __construct($route, $total, $limit = 10)
 	{
