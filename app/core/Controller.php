@@ -9,6 +9,7 @@ abstract class Controller
 	protected $route;
 	protected $view;
 	protected $acl;
+	protected $model;
 
 	public function __construct($route)
 	{

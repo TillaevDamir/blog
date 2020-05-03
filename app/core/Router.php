@@ -27,10 +27,13 @@ class Router
 
 	public function match()
 	{
-		$url = trim($_SERVER['REQUEST_URI'], '/');
+		$uri1 = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+		$base = array_shift($uri1);
+		$uri = implode('/', $uri1);
+
 		foreach($this->routes as $route=>$params)
 		{
-			if(preg_match($route, $url, $matches))
+			if(preg_match($route, $uri, $matches))
 			{
 				foreach($matches as $k=>$match)
 				{

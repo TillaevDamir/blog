@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <form action="/contact" method="post">
+            <form action="/simple_blog/contact" method="post">
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <p><input type="text" class="form-control" name="name" placeholder="Имя"></p>

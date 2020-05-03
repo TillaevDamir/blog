@@ -1,5 +1,7 @@
 <?php 
 
+namespace app\lib;
+
 use PDO;
 
 class DB
@@ -9,7 +11,7 @@ class DB
 	public function __construct()
 	{
 		$config = require 'app/config/db.php';
-		$this->db = new PDO("mysql: host=$this->config['host']; dbname=$this->config['dbname']", $this->config['user'], $this->config['pass'], $this->config['opt']);
+		$this->db = new PDO("mysql: host=".$config['host']."; dbname=".$config['dbname']."", $config['user'], $config['pass'], $config['opt']);
 	}
 
 	public function query($sql, $params = [])
@@ -27,7 +29,7 @@ class DB
 				{
 					$type = PDO::PARAM_STR;
 				}
-				$stmt = bindValue(':'.$key, $val, $type);
+				$stmt->bindValue(':'.$k, $val, $type);
 			}
 		}
 		$stmt->execute();

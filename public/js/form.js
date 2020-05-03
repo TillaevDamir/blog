@@ -13,7 +13,7 @@ $(document).ready(function(){
 				json = jQuery.parseJSON(data);
 				if(json.url)
 				{
-					window.location.href = '/'+json.url;
+					window.location.href = '/simple_blog/'+json.url;
 				}
 				else
 				{

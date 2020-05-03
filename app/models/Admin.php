@@ -79,7 +79,7 @@ class Admin extends Model
 		$img->writeImage('public/materials/'.$id.'.jpg');
 	}
 
-	public function isPostExists($id)
+	public function isPostsExists($id)
 	{
 		$params = ['id' => $id];
 		return $this->db->column("SELECT id FROM posts WHERE id = :id", $params);

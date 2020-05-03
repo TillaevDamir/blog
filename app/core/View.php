@@ -4,9 +4,9 @@ namespace app\core;
 
 class View
 {
-	protected $path;
-	protected $route;
-	protected $layout = 'default';
+	public $path;
+	public $route;
+	public $layout = 'default';
 
 	public function __construct($route)
 	{
@@ -23,13 +23,13 @@ class View
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
-			require 'app/view/layouts/'.$this->layout.'.php';
+			require 'app/views/layouts/'.$this->layout.'.php';
 		}
 	}
 
 	public function redirect($url)
 	{
-		header('Location: /'.$url);
+		header('Location: /simple_blog/'.$url);
 		exit;
 	}
 

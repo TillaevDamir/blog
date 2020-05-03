@@ -25,6 +25,20 @@ class MainController extends Controller
 
 	public function contactAction()
 	{
+		if(!empty($_POST))
+		{
+			if(!$this->model->contactValidate($_POST))
+			{
+				$this->view->message('error', $this->model->error);
+			}
+			mail('tillaevdn@gmail.com', 'Message', $_POST['name'].'|'.$_POST['email'].'|'.$_POST['text']);
+			$this->view->message('error', $this->model->error);
+		}
+		$this->view->render('Contact');
+	}
+
+	public function postAction()
+	{
 		$adminModel = new Admin;
 		if(!$adminModel->isPostsExists($this->route['id']))
 		{
@@ -33,6 +47,6 @@ class MainController extends Controller
 		$vars = [
 				'data' => $adminModel->postData($this->route['id'])[0],
 			];
-		$this->view->render('Post', $vars);
+		$this->view->render('Post', $vars);	
 	}
 }
